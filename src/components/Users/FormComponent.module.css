@@ -1,0 +1,9 @@
+.inValid, .inValid:focus{
+    background: #f5383842 !important;
+    border: 1px solid #f53838fa !important;
+    box-shadow: none !important;
+}
+.valid, .valid:focus{
+    border: 1px solid #38f561e7 !important;
+    box-shadow: none !important;
+}

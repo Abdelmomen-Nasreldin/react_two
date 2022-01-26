@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Users/Header";
+import FormComponent from "./components/Users/FormComponent";
+import Welcome from "./components/Users/Welcome";
+import { useEffect, useState } from "react";
+import FormComponentUseReducer from "./components/Users/FormComponentUseReducer";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      setIsLoggedIn(true);   
+    }
+    console.log("useEffect1")
+
+  }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      localStorage.setItem("isLoggedIn", "true")
+    }else{
+      localStorage.removeItem("isLoggedIn")
+    }  
+    console.log("useEffect2")
+},[isLoggedIn])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header setIsLoggedIn={setIsLoggedIn} />
+      <div className="container"> 
+        {isLoggedIn && <Welcome/>}
+        {/* {!isLoggedIn && <FormComponentUseReducer  setIsLoggedIn={setIsLoggedIn}/>} */}
+        {!isLoggedIn && <FormComponent setIsLoggedIn={setIsLoggedIn}/>}
+      </div>
     </div>
   );
 }
