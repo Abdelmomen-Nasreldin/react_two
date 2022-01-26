@@ -1,9 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import classes from "./FormComponent.module.css"
+import { isLoggedInContext } from './../../App';
 
 
 
-const FormComponent = ({setIsLoggedIn}) => {
+const FormComponent = () => {
+  const setIsLoggedIn = useContext(isLoggedInContext)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const submitRef = useRef();

@@ -1,5 +1,5 @@
 .inValid, .inValid:focus{
-    background: #f5383842 !important;
+    /* background: #f5383842 !important; */
     border: 1px solid #f53838fa !important;
     box-shadow: none !important;
 }

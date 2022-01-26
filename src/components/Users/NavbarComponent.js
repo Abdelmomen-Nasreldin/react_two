@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { isLoggedInContext } from './../../App';
 
-const NavbarComponent = ({setIsLoggedIn}) => {
+const NavbarComponent = () => {
+  const setIsLoggedIn = useContext(isLoggedInContext);
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

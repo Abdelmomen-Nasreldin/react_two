@@ -1,9 +1,9 @@
 import React from 'react';
 import NavbarComponent from './NavbarComponent';
 
-const Header = ({setIsLoggedIn}) => {
+const Header = () => {
   return <div>
-      <NavbarComponent setIsLoggedIn={setIsLoggedIn}/>
+      <NavbarComponent />
       
   </div>;
 };
